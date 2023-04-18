@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FitLife.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:FitLife.Model"
+    xmlns:viewmodel="clr-namespace:FitLife.ViewModel"
+    Title="{Binding Title}">
+
+
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0">
+
+        <CollectionView Grid.ColumnSpan="2" ItemsSource="{Binding ExercisesToShow}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Exercise">
+                    <Grid Padding="10">
+                        <Frame Padding="0" HeightRequest="125">
+                            <Grid Padding="0" ColumnDefinitions="125,*">
+                                <Image
+                                    Aspect="AspectFill"
+                                    HeightRequest="125"
+                                    Source="{Binding Image}"
+                                    WidthRequest="125" />
+                                <VerticalStackLayout
+                                    Grid.Column="1"
+                                    Padding="20"
+                                    VerticalOptions="Center">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        Text="{Binding Name}" />
+
+                                </VerticalStackLayout>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnExerciseTapped" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>

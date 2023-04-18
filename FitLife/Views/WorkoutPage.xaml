@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FitLife.Views.WorkoutPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:FitLife.Model"
+    xmlns:viewmodel="clr-namespace:FitLife.ViewModel"
+    Title="{Binding Title}">
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0">
+
+        <CollectionView Grid.ColumnSpan="2" ItemsSource="{Binding WorkoutsToShow}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Workout">
+                    <Grid Padding="10">
+                        <Frame Padding="0" HeightRequest="125">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                HorizontalOptions="Center"
+                                Text="{Binding Name}"
+                                VerticalOptions="Center" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnWorkoutTapped"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+    </Grid>
+
+</ContentPage>

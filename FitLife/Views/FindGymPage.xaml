@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FitLife.Views.FindGymPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodel="clr-namespace:FitLife.ViewModel"
+    Title="Map">
+
+
+    <StackLayout Padding="5">
+        <StackLayout Margin="10" Orientation="Horizontal">
+            <Label
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="Open map for the closest"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+        <Button
+            Margin="5"
+            Command="{Binding FindGymCommand}"
+            CommandParameter="Puregym"
+            Text="Puregym" />
+        <Button
+            Margin="5"
+            Command="{Binding FindGymCommand}"
+            CommandParameter="JD gym"
+            Text="JD Gym" />
+        <Button
+            Margin="5"
+            Command="{Binding FindGymCommand}"
+            CommandParameter="Ultimate Fitness"
+            Text="Ultimate Fitness" />
+        <Button
+            Margin="5"
+            Command="{Binding FindGymCommand}"
+            CommandParameter="The Gym Group"
+            Text="The Gym Group" />
+    </StackLayout>
+</ContentPage>

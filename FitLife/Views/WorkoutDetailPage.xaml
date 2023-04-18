@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FitLife.Views.WorkoutDetailPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:FitLife.Model;assembly=FitLife"
+    xmlns:viewModel="clr-namespace:FitLife.ViewModel;assembly=FitLife"
+    x:DataType="viewModel:WorkoutDetailViewModel"
+    Title="{Binding SelectedWorkout.Name}">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label
+                Margin="10"
+                FontSize="Medium"
+                Text="Exercises Left To Do:" />
+                <Label
+                FontSize="Medium"
+                VerticalOptions="Center"
+                Text="{Binding ExercisesLeftToDo}" />
+            </StackLayout>
+            
+            <CollectionView ItemsSource="{Binding ListOfExercisesToShow}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Exercise">
+                        <StackLayout Margin="10" Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsCompleted}"/>
+                            <StackLayout Padding="15">
+                                <Label FontAttributes="Bold" Text="{Binding Name}" />
+                                <Label FontSize="Small" Text="{Binding Howmany}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

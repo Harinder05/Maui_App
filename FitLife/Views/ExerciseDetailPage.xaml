@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FitLife.Views.ExerciseDetailPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:FitLife.Model"
+    xmlns:viewmodel="clr-namespace:FitLife.ViewModel"
+    Title="How To Do">
+
+
+    <ScrollView>
+        <StackLayout Padding="10">
+            <Label
+                FontAttributes="Bold"
+                FontSize="24"
+                Text="{Binding SelectedExercise.Name}" />
+            <Image Source="{Binding SelectedExercise.Image}" />
+            <Label
+                Padding="5"
+                FontAttributes="Bold"
+                FontSize="18"
+                Text="Description" />
+            <Label Text="{Binding SelectedExercise.Description}" />
+            <Label
+                Padding="5"
+                FontAttributes="Bold"
+                FontSize="18"
+                Text="Instructions" />
+            <Label Text="{Binding SelectedExercise.Instructions}" />
+            
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
